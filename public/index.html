@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>HEAR A1 plateforme workshops</title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	
+	<head>
+		<meta charset="utf-8">
+		<title>HEAR A1 plateforme workshops</title>
+		<link rel="stylesheet" href="assets/css/style.css">
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="assets/js/vue.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function () {
+				var socket = io();
+				$('form').submit(function(e){
+					e.preventDefault(); 
+					socket.emit('chat message', $('#m').val());
+					$('#m').val('');
+					return false;
+				});
+				socket.on('chat message', function(msg){
+					$('#messages').append($('<li>').text(msg));
+				});
+				socket.on('info', function(msg){
+					console.log(msg)
+				});
+			});
+		</script>
+	</head>
+	<body>
+	<ul id="messages"></ul>
+	<form action="">
+		<input id="m" autocomplete="off" /><button>Send</button>
+	</form>
+
+
+	<section id="login">
+		<h1>Login</h1>
+	</section>
+	<section id="les-select">
+		<div id="sdt-info">
+			<p id="std-mail">email</p>
+		</div>
+		<div id="les-list">
+			<ul>
+				
+			</ul>
+		</div>
+	</section>
+
 </body>
 </html>

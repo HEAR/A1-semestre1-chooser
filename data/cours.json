@@ -1,0 +1,118 @@
+{
+	"calendar":[
+		{
+			"title":"Archiver / documenter",
+			"date":"2020-10-05",
+			"teachers":[
+				"Aurélie Gasche",
+				"Loïc Horellou",
+				"Claire Malrieux",
+				"Samuel François"
+			]
+		},
+		{
+			"title":"Groupe",
+			"date":"2020-10-12",
+			"teachers":[
+				"Loïc Horellou",
+				"Marie-Jo Daloz",
+				"Vincent Chevillon",
+				"Alain Della Negra / Liv Schulmann"
+			]
+		},
+		{
+			"title":"Empreinte",
+			"date":"2020-10-19",
+			"teachers":[
+				"Équipe pédagogique"
+			]
+		},
+		{
+			"title":"Espace / objet",
+			"date":"2020-10-26",
+			"teachers":[
+				"Aurélie Gasche",
+				"Vincent Chevillon",
+				"Claire Malrieux",
+				"Samuel François"
+			]
+		},
+		{
+			"title":"Signe / enquête",
+			"date":"2020-11-02",
+			"teachers":[
+				"Marie-Jo Daloz",
+				"Vincent Chevillon",
+				"Claire Malrieux",
+				"Alain Della Negra / Liv Schulmann"
+			]
+		},
+		{
+			"title":"Main / machine",
+			"date":"2020-11-09",
+			"teachers":[
+				"Aurélie Gasche",
+				"Loïc Horellou",
+				"Marie-Jo Daloz"
+			]
+		},
+		{
+			"title":"Narration",
+			"date":"2020-11-23",
+			"teachers":[
+				"Aurélie Gasche",
+				"Marie-Jo Daloz",
+				"Vincent Chevillon",
+				"Alain Della Negra / Liv Schulmann"
+			]
+		},
+		{
+			"title":"Procole",
+			"date":"2020-11-30",
+			"teachers":[
+				"Aurélie Gasche",
+				"Loïc Horellou",
+				"Claire Malrieux",
+				"Samuel François"
+			]
+		},
+		{
+			"title":"Accrochage",
+			"date":"2020-12-07",
+			"teachers":[
+				"Marie-Jo Daloz",
+				"Vincent Chevillon",
+				"Samuel François"
+			]
+		},
+		{
+			"title":"Performance",
+			"date":"2020-12-14",
+			"teachers":[
+				"Loïc Horellou",
+				"Claire Malrieux",
+				"Samuel François",
+				"Alain Della Negra / Liv Schulmann"
+			]
+		},
+		{
+			"title":"Hors champ",
+			"date":"2021-01-04",
+			"teachers":[
+				"Loïc Horellou",
+				"Marie-Jo Daloz",
+				"Vincent Chevillon"
+			]
+		},
+		{
+			"title":"Édition",
+			"date":"2020-01-13",
+			"teachers":[
+				"Aurélie Gasche",
+				"Claire Malrieux",
+				"Samuel François",
+				"Alain Della Negra / Liv Schulmann"
+			]
+		}
+	]
+}

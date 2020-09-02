@@ -4,44 +4,109 @@
 		<meta charset="utf-8">
 		<title>HEAR A1 plateforme workshops</title>
 		<link rel="stylesheet" href="assets/css/style.css">
-		<script src="/socket.io/socket.io.js"></script>
+		<!-- <script src="/socket.io/socket.io.js"></script> -->
 		<script src="assets/js/vue.min.js"></script>
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
 		<script>
-			$(function () {
-				var socket = io();
-				$('form').submit(function(e){
-					e.preventDefault(); 
-					socket.emit('chat message', $('#m').val());
-					$('#m').val('');
-					return false;
-				});
-				socket.on('chat message', function(msg){
-					$('#messages').append($('<li>').text(msg));
-				});
-				socket.on('info', function(msg){
-					console.log(msg)
-				});
-			});
+			// $(function () {
+			// 	var socket = io();
+			// 	$('form').submit(function(e){
+			// 		e.preventDefault(); 
+			// 		socket.emit('chat message', $('#m').val());
+			// 		$('#m').val('');
+			// 		return false;
+			// 	});
+			// 	socket.on('chat message', function(msg){
+			// 		$('#messages').append($('<li>').text(msg));
+			// 	});
+			// 	socket.on('info', function(msg){
+			// 		console.log(msg)
+			// 	});
+			// });
 		</script>
 	</head>
 	<body>
-	<ul id="messages"></ul>
+	<!-- <ul id="messages"></ul>
 	<form action="">
 		<input id="m" autocomplete="off" /><button>Send</button>
-	</form>
+	</form> -->
 
 
 	<section id="login">
-		<h1>Login</h1>
+		<p>Login</p>
+		<form action="">
+			<input type="text" name="email" id="email">
+			<input type="text" name="password" id="password">
+			<button type="submit">S'authentifier</button>
+		</form>
 	</section>
-	<section id="les-select">
-		<div id="sdt-info">
-			<p id="std-mail">email</p>
+	<section id="selecteur">
+		<div id="etudiant-info">
+			<p id="std-mail">abcd.efghij@hear.fr</p>
 		</div>
-		<div id="les-list">
+		<div id="enseignants-liste">
 			<ul>
-				
+				<li>Aurélie Gasche</li>
+				<li>Loïc Horellou</li>
+				<li>Claire Malrieux</li>
+				<li>Samuel François</li>
+				<li>Marie-Jo Daloz</li>
+				<li>Vincent Chevillon</li>
+				<li>Alain Della Negra / Liv Schulmann</li>
+				<li>Équipe pédagogique</li>
+			</ul>
+		</div>
+		<div id="approches-liste">
+			<ul>
+				<li class="validated">
+					<h2>Archiver / documenter</h2>
+					<p class="date">05 10 2020</p>
+					<h3>Approches :</h3>
+					<ul class="approches">
+						<li><span class="places">15</span> Aurélie Gasche</li>
+						<li class="selected"><span class="places">15</span> Loïc Horellou</li>
+						<li><span class="places">15</span> Claire Malrieux</li>
+						<li><span class="places">15</span> Samuel François</li>
+					</ul>
+				</li>
+				<li class="validated">
+					<h2>Groupe</h2>
+					<p class="date">12 10 2020</p>
+					<h3>Approches :</h3>
+					<ul class="approches">
+						<li><span class="places">15</span> Loïc Horellou</li>
+						<li><span class="places">15</span> Marie-Jo Daloz</li>
+						<li><span class="places">15</span> Vincent Chevillon</li>
+						<li class="selected"><span class="places">15</span> Alain Della Negra / Liv Schulmann</li>
+					</ul>
+				</li>
+				<li>
+					<h2>Empreinte</h2>
+					<p class="date">19 10 2020</p>
+					<h3>Approches :</h3>
+					<ul class="approches">
+						<li><span class="places">60</span> Équipe pédagogique</li>
+					</ul>
+				</li>
+				<li>
+					<h2>Espace / objet</h2>
+					<p class="date">26 10 2020</p>
+					<h3>Approches :</h3>
+					<ul class="approches">
+						<li><span class="places">15</span> Aurélie Gasche</li>
+						<li><span class="places">15</span> Vincent Chevillon</li>
+						<li><span class="places">15</span> Claire Malrieux</li>
+						<li><span class="places">15</span> Samuel François</li>
+					</ul>
+				</li>
+				<li>Signe / enquête</li>
+				<li>Main / machine</li>
+				<li>Narration</li>
+				<li>Procole</li>
+				<li>Accrochage</li>
+				<li>Performance</li>
+				<li>Hors champ</li>
+				<li>Édition</li>
 			</ul>
 		</div>
 	</section>

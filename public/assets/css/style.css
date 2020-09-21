@@ -7,46 +7,24 @@
 html{
 	font-size: 30px;
 }
+
 body{
 	font-family: sans-serif;
-	margin: 1rem;
-}
-
-/*body {
-	font: 13px Helvetica, Arial;
-}
-form {
-	background: #000;
-	padding: 3px;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-}
-form input {
-	border: 0;
-	padding: 10px;
-	width: 90%;
-	margin-right: 0.5%;
-}
-form button {
-	width: 9%;
-	background: rgb(130, 224, 255);
-	border: none;
-	padding: 10px;
-}
-#messages {
-	list-style-type: none;
 	margin: 0;
-	padding: 0;
 }
-#messages li {
-	padding: 5px 10px;
+
+#app{
+	transition: all 0.2s;
 }
-#messages li:nth-child(odd) {
-	background: #eee;
-}*/
 
-
+button{
+	font-size: 1rem;
+	text-align: left;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+}
 
 
 h1{
@@ -62,13 +40,16 @@ h1{
 	top: 0;
 	position: fixed;
 }
+
 a{
 	color:#000;
 	text-decoration: none;
 }
+
 a:hover{
 	color:blue;
 }
+
 ul{
 	list-style-position: inside;
 	margin: 0;
@@ -77,16 +58,10 @@ ul{
 	margin-top: 2.5rem;
 	font-size: 1rem;
 }
+
 ul>li{
 	margin: 0;
 	padding: 0;
-}
-input{
-	font-size: .5rem;
-	float: right;
-	border: solid 1px blue;
-	position: relative;
-	top: -.1rem;
 }
 
 h2, h3{
@@ -94,19 +69,62 @@ h2, h3{
 	font-weight: normal;
 }
 
-
 section#login{
-	display: none;
 	background: blue;
-	margin: -1rem;
+	height: 100vh;
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 1rem;
+	align-content: center;
 }
 
+section#login input{
+	font-size: 1rem;
+	border: 0;
+	width: 100%;
+	height: 1rem;
+	padding: .1rem;
+	height: 1.2rem;
+	background: blue;
+	border: solid 1px #000;
+	outline: none;
+}
+
+section#login input:focus{
+	border-color:#FFF;
+	color: #FFF;
+}
+section#login button{
+	width: 100%;
+	height: 1rem;
+}
+
+section#selecteur{
+	margin: 1rem;
+}
+
+section#selecteur #etudiant-info{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 1rem;
+	grid-template-areas: "user . . logout";
+}
+
+#logout{
+	grid-area: logout;
+	color: blue;
+}
 
 section#selecteur #enseignants-liste{
 	position: sticky;
 	top: 0rem;
-	background: #FFF;
+	background: linear-gradient(
+		#fff calc(100% - 1rem),
+		rgba(255,255,255,0)
+	);
 	padding-bottom: 1rem;
+	z-index: 100;
 }
 
 
@@ -114,6 +132,10 @@ section#selecteur #enseignants-liste ul{
 	padding-top: 1rem;
 	column-count: 4;
 	column-gap: 1rem;
+}
+
+section#selecteur #enseignants-liste ul li.selected{
+	text-decoration: line-through;
 }
 
 section#selecteur #approches-liste>ul>li{
@@ -125,12 +147,15 @@ section#selecteur #approches-liste>ul>li{
 		"appro appro";
 }
 
-section#selecteur p.date{
-	margin-left: .75rem;
-	font-style: italic; 
-	color: blue;
+section#selecteur h2{
+	font-weight: bold;
 }
 
+section#selecteur .date{
+	color: black;
+	font-style: italic;
+	margin-left: .75rem;
+}
 
 section#selecteur ul.approches{
 	grid-area: appro;
@@ -139,23 +164,42 @@ section#selecteur ul.approches{
 	grid-column-gap: 1rem;
 	margin-top: 0;
 	padding-bottom: .5rem;
-	border-bottom: solid 5px blue;
+	border-bottom: solid 5px black;
 	margin-bottom: .5rem;
 }
 
-section#selecteur ul.approches li.selected{
-	background: blue;
-	border-radius: .5rem;
+section#selecteur ul.approches li .nom{
+	padding: .1rem;
+	cursor: pointer;
 }
 
-.places{
-	color: #FFF;
+section#selecteur li:last-child ul.approches{
+	border: 0;
+}
+
+section#selecteur ul.approches li.selected .nom{
 	background: blue;
-	padding: .2rem;
+	border-radius: .25rem;
+	color: #FFF;
+	margin-left: -.15rem;
+}
+
+.bulle{
+	color: #FFF;
+	background: black;
+	padding: .15rem;
 	border-radius: .5rem;
 	font-size: .6rem;
 	position: relative;
-	bottom: .125rem;
+	bottom: .16rem;
+	display: inline-block;
+	height: 1rem;
+	width: 1rem;
+	text-align: center;
+}
+
+section#selecteur .validated .date{
+	color:blue;
 }
 
 .validated h2{
@@ -163,3 +207,53 @@ section#selecteur ul.approches li.selected{
 	text-decoration-color: blue;
 }
 
+.validated{
+	color: blue;
+}
+
+.validated .bulle{
+	background: blue;
+}
+
+section#selecteur .validated ul.approches{
+	border-color: blue;
+}
+
+/* SLIDE TOGGLE*/
+/* http://jsfiddle.net/Jayesh_v/tmagr517/ */
+.wrapper{
+	font-size: .75rem;
+	margin-top: .25rem;
+	position:relative;
+	overflow: hidden;
+	max-height: 1000px;
+	white-space: pre-line;
+}
+.slide-enter-active,
+.slide-leave-active  {
+	transition: max-height 0.6s ease;
+}
+.slide-enter,
+.slide-leave-to {
+	max-height: 0px;
+}
+/* FIN SLIDE TOGGLE*/
+
+#message{
+	position: fixed;
+	bottom: .5rem;
+	left:0;
+	right: 0;
+	pointer-events: none;
+}
+
+#message .content{
+	max-width: 400px;
+	margin: auto;
+	background: #ff6666;
+	padding: .75rem;
+	font-size: .5rem;
+	font-weight: bold;
+	transition: opacity 1s ease-in-out;
+	border-radius: .15rem;
+}

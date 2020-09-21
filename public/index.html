@@ -4,112 +4,82 @@
 		<meta charset="utf-8">
 		<title>HEAR A1 plateforme workshops</title>
 		<link rel="stylesheet" href="assets/css/style.css">
-		<!-- <script src="/socket.io/socket.io.js"></script> -->
-		<script src="assets/js/vue.min.js"></script>
-		<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-		<script>
-			// $(function () {
-			// 	var socket = io();
-			// 	$('form').submit(function(e){
-			// 		e.preventDefault(); 
-			// 		socket.emit('chat message', $('#m').val());
-			// 		$('#m').val('');
-			// 		return false;
-			// 	});
-			// 	socket.on('chat message', function(msg){
-			// 		$('#messages').append($('<li>').text(msg));
-			// 	});
-			// 	socket.on('info', function(msg){
-			// 		console.log(msg)
-			// 	});
-			// });
-		</script>
+		<!-- <script src="http://localhost:8098"></script> -->
 	</head>
 	<body>
-	<!-- <ul id="messages"></ul>
-	<form action="">
-		<input id="m" autocomplete="off" /><button>Send</button>
-	</form> -->
-
-
-	<section id="login">
-		<p>Login</p>
-		<form action="">
-			<input type="text" name="email" id="email">
-			<input type="text" name="password" id="password">
-			<button type="submit">S'authentifier</button>
-		</form>
-	</section>
-	<section id="selecteur">
-		<div id="etudiant-info">
-			<p id="std-mail">abcd.efghij@hear.fr</p>
-		</div>
-		<div id="enseignants-liste">
-			<ul>
-				<li>Aurélie Gasche</li>
-				<li>Loïc Horellou</li>
-				<li>Claire Malrieux</li>
-				<li>Samuel François</li>
-				<li>Marie-Jo Daloz</li>
-				<li>Vincent Chevillon</li>
-				<li>Alain Della Negra / Liv Schulmann</li>
-				<li>Équipe pédagogique</li>
+	<main id="app">
+		<section v-if="!logged" id="login">
+			<p>Identification </p>
+			<input type="text" name="email" id="email" placeholder="email" autocomplete="on">
+			<input type="password" name="password" id="password" placeholder="mot de passe" v-on:keyup.enter="login">
+			<button id="submit" type="submit" v-on:click="login" v-on:keyup.enter="login">S'authentifier</button>
+		</section>
+		<section v-if="logged" id="selecteur">
+			<div id="etudiant-info">
+				<p>Bonjour <span id="etudiant-mail">{{email}}</span></p>
+				<button id="logout" v-on:click="logout">Se déconnecter</button>
+			</div>
+			<div id="enseignants-liste">
+				<ul>
+					<li v-for="enseignant in enseignants"
+						v-bind:key="enseignant.id"
+						v-bind:id="enseignant.id"
+						v-bind:class="{ selected: enseignant.active }"
+						v-on:click="log(enseignant.id)">{{enseignant.nom}}</li>
+				</ul>
+			</div>
+			<div id="approches-liste">
+				<ul>
+					<approche-comp
+							v-for="approche in approches"
+							:id="approche.id"
+							:titre="approche.titre"
+							:date="approche.date"
+							:validated='approche.validated'
+							:enseignants="approche.enseignants"
+							v-bind:ref="'approche-'+approche.id"
+							v-bind:key="approche.id"></approche-comp>
+					
+				</ul>
+			</div>
+			<div id="message">
+				<div class="content"
+					v-bind:style="{ opacity: opacity }"
+				>
+					{{message}}
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- COMPONENTS -->
+	<!-- https://vuejs.org/v2/guide/components.html -->
+	<!-- https://vuejs.org/v2/guide/syntax.html -->
+	<!-- https://coligo.io/vuejs-components/ -->
+	<!--  v-on:click="incrementHeroCounter" -->
+	<template id="approche-template">
+		<li	v-bind:class="{ validated: validated }" v-bind:id="id">
+			<h2>{{titre}}</h2>
+			<p class="date">{{date}}</p>
+			<h3><span class="bulle" v-on:click="toggle = !toggle">{{toggle ? '↑' : '↓'}}</span> Approches :</h3>
+			<ul class="approches">
+				<li v-for="enseignant in enseignants"
+					v-bind:key="enseignant.nom"
+					v-bind:class="{ selected: enseignant.selected }"
+					>
+					<div><span class="bulle">{{enseignant.places}}</span> <span class="nom" v-on:click="select_approche(id,enseignant.id)">{{enseignant.nom}}</span></div>
+					<transition name="slide">
+						<div v-if="toggle" class="wrapper">
+							{{enseignant.resume}}
+						</div>
+					</transition>
+				</li>
 			</ul>
-		</div>
-		<div id="approches-liste">
-			<ul>
-				<li class="validated">
-					<h2>Archiver / documenter</h2>
-					<p class="date">05 10 2020</p>
-					<h3>Approches :</h3>
-					<ul class="approches">
-						<li><span class="places">15</span> Aurélie Gasche</li>
-						<li class="selected"><span class="places">15</span> Loïc Horellou</li>
-						<li><span class="places">15</span> Claire Malrieux</li>
-						<li><span class="places">15</span> Samuel François</li>
-					</ul>
-				</li>
-				<li class="validated">
-					<h2>Groupe</h2>
-					<p class="date">12 10 2020</p>
-					<h3>Approches :</h3>
-					<ul class="approches">
-						<li><span class="places">15</span> Loïc Horellou</li>
-						<li><span class="places">15</span> Marie-Jo Daloz</li>
-						<li><span class="places">15</span> Vincent Chevillon</li>
-						<li class="selected"><span class="places">15</span> Alain Della Negra / Liv Schulmann</li>
-					</ul>
-				</li>
-				<li>
-					<h2>Empreinte</h2>
-					<p class="date">19 10 2020</p>
-					<h3>Approches :</h3>
-					<ul class="approches">
-						<li><span class="places">60</span> Équipe pédagogique</li>
-					</ul>
-				</li>
-				<li>
-					<h2>Espace / objet</h2>
-					<p class="date">26 10 2020</p>
-					<h3>Approches :</h3>
-					<ul class="approches">
-						<li><span class="places">15</span> Aurélie Gasche</li>
-						<li><span class="places">15</span> Vincent Chevillon</li>
-						<li><span class="places">15</span> Claire Malrieux</li>
-						<li><span class="places">15</span> Samuel François</li>
-					</ul>
-				</li>
-				<li>Signe / enquête</li>
-				<li>Main / machine</li>
-				<li>Narration</li>
-				<li>Procole</li>
-				<li>Accrochage</li>
-				<li>Performance</li>
-				<li>Hors champ</li>
-				<li>Édition</li>
-			</ul>
-		</div>
-	</section>
-
+		</li>
+	</template>
+	<!--  SCRIPTS  -->
+	<script src="/socket.io/socket.io.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+	<script src="assets/js/vue.min.js"></script>
+	<script src="assets/js/script.js"></script>
 </body>
 </html>

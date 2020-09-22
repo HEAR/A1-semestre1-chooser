@@ -1,117 +1,243 @@
 {
-	"calendar":[
+	"approches":[
 		{
-			"title":"Archiver / documenter",
+			"titre":"Archiver / documenter",
 			"date":"2020-10-05",
-			"teachers":[
-				"Aurélie Gasche",
-				"Loïc Horellou",
-				"Claire Malrieux",
-				"Samuel François"
+			"enseignants":[
+				{
+					"nom":"Aurélie Gasche",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Loïc Horellou",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Claire Malrieux",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Samuel François",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Groupe",
+			"titre":"Groupe",
 			"date":"2020-10-12",
-			"teachers":[
-				"Loïc Horellou",
-				"Marie-Jo Daloz",
-				"Vincent Chevillon",
-				"Alain Della Negra / Liv Schulmann"
+			"enseignants":[
+				{
+					"nom":"Loïc Horellou",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Marie-Jo Daloz",
+					"resume":"lorem"
+				},
+				{	
+					"nom":"Vincent Chevillon",
+					"resume":"lorem"
+				},
+				{	
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Empreinte",
+			"titre":"Empreinte",
 			"date":"2020-10-19",
-			"teachers":[
-				"Équipe pédagogique"
+			"enseignants":[
+				{
+					"nom":"Équipe pédagogique",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Espace / objet",
+			"titre":"Espace / objet",
 			"date":"2020-10-26",
-			"teachers":[
-				"Aurélie Gasche",
-				"Vincent Chevillon",
-				"Claire Malrieux",
-				"Samuel François"
+			"enseignants":[
+				{
+					"nom":"Aurélie Gasche",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Vincent Chevillon",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Claire Malrieux",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Samuel François",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Signe / enquête",
+			"titre":"Signe / enquête",
 			"date":"2020-11-02",
-			"teachers":[
-				"Marie-Jo Daloz",
-				"Vincent Chevillon",
-				"Claire Malrieux",
-				"Alain Della Negra / Liv Schulmann"
+			"enseignants":[
+				{
+					"nom":"Marie-Jo Daloz",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Vincent Chevillon",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Claire Malrieux",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Main / machine",
+			"titre":"Main / machine",
 			"date":"2020-11-09",
-			"teachers":[
-				"Aurélie Gasche",
-				"Loïc Horellou",
-				"Marie-Jo Daloz"
+			"enseignants":[
+				{
+					"nom":"Aurélie Gasche",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Loïc Horellou",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Marie-Jo Daloz",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Narration",
+			"titre":"Narration",
 			"date":"2020-11-23",
-			"teachers":[
-				"Aurélie Gasche",
-				"Marie-Jo Daloz",
-				"Vincent Chevillon",
-				"Alain Della Negra / Liv Schulmann"
+			"enseignants":[
+				{
+					"nom":"Aurélie Gasche",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Marie-Jo Daloz",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Vincent Chevillon",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Procole",
+			"titre":"Procole",
 			"date":"2020-11-30",
-			"teachers":[
-				"Aurélie Gasche",
-				"Loïc Horellou",
-				"Claire Malrieux",
-				"Samuel François"
+			"enseignants":[
+				{	
+					"nom":"Aurélie Gasche",
+					"resume":"lorem"
+				},
+				{	
+					"nom":"Loïc Horellou",
+					"resume":"lorem"
+				},
+				{	
+					"nom":"Claire Malrieux",
+					"resume":"lorem"
+				},
+				{	
+					"nom":"Samuel François",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Accrochage",
+			"titre":"Accrochage",
 			"date":"2020-12-07",
-			"teachers":[
-				"Marie-Jo Daloz",
-				"Vincent Chevillon",
-				"Samuel François"
+			"enseignants":[
+				{
+					"nom":"Marie-Jo Daloz",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Vincent Chevillon",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Samuel François",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Performance",
+			"titre":"Performance",
 			"date":"2020-12-14",
-			"teachers":[
-				"Loïc Horellou",
-				"Claire Malrieux",
-				"Samuel François",
-				"Alain Della Negra / Liv Schulmann"
+			"enseignants":[
+				{
+					"nom":"Loïc Horellou",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Claire Malrieux",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Samuel François",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Hors champ",
+			"titre":"Hors champ",
 			"date":"2021-01-04",
-			"teachers":[
-				"Loïc Horellou",
-				"Marie-Jo Daloz",
-				"Vincent Chevillon"
+			"enseignants":[
+				{
+					"nom":"Loïc Horellou",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Marie-Jo Daloz",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Vincent Chevillon",
+					"resume":"lorem"
+				}
 			]
 		},
 		{
-			"title":"Édition",
-			"date":"2020-01-13",
-			"teachers":[
-				"Aurélie Gasche",
-				"Claire Malrieux",
-				"Samuel François",
-				"Alain Della Negra / Liv Schulmann"
+			"titre":"Édition",
+			"date":"2021-01-13",
+			"enseignants":[
+				{
+					"nom":"Aurélie Gasche",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Claire Malrieux",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Samuel François",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"lorem"
+				}
 			]
 		}
 	]

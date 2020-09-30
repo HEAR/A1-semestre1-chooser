@@ -147,7 +147,7 @@ if( ! fs.existsSync( data_file_path ) ){
 
 	// console.log(data_app)
 	try {
-		fs.writeFileSync( data_file_path , JSON.stringify( data_app , null, '\t' ) )
+		fs.writeFileSync( data_file_path , JSON.stringify( data_app /*, null, '\t'*/ ) )
 	} catch (e) {
 		console.log(e)
 	}
@@ -303,10 +303,13 @@ io.on('connection', (socket) => {
 
 			if( data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places < data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].max_places ){
 
-				delete data_app.etudiants[ req.session.userID ].approches[ data.approche_id ]
-
-				data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places ++	
-
+				try{
+					delete data_app.etudiants[ req.session.userID ].approches[ data.approche_id ]
+					data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places ++	
+				} catch (e) {
+					console.log("ERROR during delete", e)
+				}
+				
 				message = "Désinscription confirmée."
 			}
 		}
@@ -329,7 +332,7 @@ io.on('connection', (socket) => {
 
 
 		try {
-			fs.writeFileSync( data_file_path, JSON.stringify( data_app , null, '\t' ) )
+			fs.writeFileSync( data_file_path, JSON.stringify( data_app /*, null, '\t'*/ ) )
 		} catch (e) {
 			console.log(e)
 		}

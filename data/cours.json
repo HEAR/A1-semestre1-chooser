@@ -5,10 +5,6 @@
 			"date":"2020-10-05",
 			"enseignants":[
 				{
-					"nom":"Aurélie Gasche",
-					"resume":"lorem"
-				},
-				{
 					"nom":"Loïc Horellou",
 					"resume":"lorem"
 				},
@@ -164,6 +160,10 @@
 			"titre":"Accrochage",
 			"date":"2020-12-07",
 			"enseignants":[
+				{
+					"nom":"Aurélie Gasche",
+					"resume":"lorem"
+				},
 				{
 					"nom":"Marie-Jo Daloz",
 					"resume":"lorem"

@@ -63,10 +63,6 @@
 					"resume":"lorem"
 				},
 				{
-					"nom":"Claire Malrieux",
-					"resume":"lorem"
-				},
-				{
 					"nom":"Samuel François",
 					"resume":"lorem"
 				}
@@ -122,6 +118,10 @@
 				},
 				{
 					"nom":"Marie-Jo Daloz",
+					"resume":"lorem"
+				},
+				{
+					"nom":"Claire Malrieux",
 					"resume":"lorem"
 				},
 				{

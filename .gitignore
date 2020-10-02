@@ -118,6 +118,6 @@ dist
 .pnp.*
 
 
-
+data/admins.csv
 data/etudiants.csv
 data/data-app.json

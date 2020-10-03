@@ -64,14 +64,23 @@ let data_app = {}
 let data_file_path = path.join( __dirname, 'data', 'data-app.json')
 
 
+// LISTE ADMINS 
+let adminsObjList = csvToObj( fs.readFileSync( path.join(__dirname, 'data', 'admins.csv')).toString() )
+let adminsList 	= {}
+adminsObjList.forEach((admin,index) => {
+	// console.log(index, admin)
+	admin.approches = {}
+	adminsList[ admin.mail ] = admin
+})
 
+
+// LISTE ETUDIANTS
 let studentsObjList = csvToObj( fs.readFileSync( path.join(__dirname, 'data', 'etudiants.csv')).toString() )
 let studentsList 	= {}
 studentsObjList.forEach((etudiant,index) => {
 	// console.log(index, etudiant)
 	etudiant.approches = {}
 	studentsList[ etudiant.mail ] = etudiant
-	// nbr_students ++ 
 })
 
 let nbr_students = Object.keys(studentsList).length
@@ -142,12 +151,13 @@ if( ! fs.existsSync( data_file_path ) ){
 
 	
 	data_app.approches 		= lessonsList
+	// data_app.admins 		= adminsList
 	data_app.etudiants 		= studentsList
 	data_app.enseignants 	= teachersList
 
 	// console.log(data_app)
 	try {
-		fs.writeFileSync( data_file_path , JSON.stringify( data_app /*, null, '\t'*/ ) )
+		fs.writeFileSync( data_file_path , JSON.stringify( data_app , null, '\t' ) )
 	} catch (e) {
 		console.log(e)
 	}
@@ -184,7 +194,9 @@ io.use( function (socket, next) {
 app.use( sessionMiddleware )
 app.use( cookieParser() )
 app.use( express.static( __dirname +'/public') )
-
+app.get('/admin', (req, res) => {
+	res.sendFile(__dirname + '/public/admin.html');
+});
 
 
 io.on('connection', (socket) => {
@@ -208,13 +220,26 @@ io.on('connection', (socket) => {
 
 	let logged = false
 
+	// console.log( "filename", socket.request.headers.referer.search('admin') )
+	let isAdmin = socket.request.headers.referer.search('admin') == -1 ? false : true
+
 	if(req.session.userID != null){
 		console.log("\t-> existing userID", req.session.userID)
-		for (const mail in studentsList) {
-		// studentsList.forEach(student => {
-			if(mail == req.session.userID){
-				logged = true
+		if( isAdmin ){
+			for (const mail in adminsList) {
+			// studentsList.forEach(student => {
+				if(mail == req.session.userID){
+					logged = true
+				}
 			}
+		}else{
+			for (const mail in studentsList) {
+			// studentsList.forEach(student => {
+				if(mail == req.session.userID){
+					logged = true
+				}
+			}
+
 		}
 		if(logged === true){
 			socket.emit("login_success", {user: req.session.userID})
@@ -233,14 +258,26 @@ io.on('connection', (socket) => {
 	// https://www.npmjs.com/package/express-session
 	socket.on('login_register', (data) => {
 
+		// console.log( path.basename(socket.request.headers.referer ) )
+		isAdmin = socket.request.headers.referer.search('admin') == -1 ? false : true
+
 		const user = data.user,
 		password = data.password;
 
 		let logged = false
-		for (const mail in studentsList) {
-		// studentsList.forEach((student,index) => {
-			if(mail == user && studentsList[mail].password == password){
-				logged = true
+		if(isAdmin){
+			for (const mail in adminsList) {
+			// studentsList.forEach((student,index) => {
+				if(mail == user && adminsList[mail].password == password){
+					logged = true
+				}
+			}
+		}else{
+			for (const mail in studentsList) {
+			// studentsList.forEach((student,index) => {
+				if(mail == user && studentsList[mail].password == password){
+					logged = true
+				}
 			}
 		}
 
@@ -250,6 +287,7 @@ io.on('connection', (socket) => {
 			socket.emit("login_error")
 		} else if(logged === true){
 			req.session.userID = user
+			req.session.isAdmin = isAdmin
 			console.log(req.session)
 			req.session.save()
 			socket.emit("login_success", {user: user})
@@ -268,11 +306,41 @@ io.on('connection', (socket) => {
 	// })
 
 	socket.on("get_data", (data) => {
-		console.log("get_data",req.session.userID,data_app.etudiants[ req.session.userID ].approches)
+		// console.log("get_data",req.session.userID,data_app.etudiants[ req.session.userID ].approches)
 
 		socket.emit("data_approches", data_app.approches)
 		socket.emit("data_enseignants", data_app.enseignants)
-		socket.emit("data_user", data_app.etudiants[ req.session.userID ].approches)
+		if(!isAdmin){
+			socket.emit("data_user", data_app.etudiants[ req.session.userID ].approches)
+		}
+	})
+
+	socket.on("save_resume", (data) => {
+		console.log("save_resume",data)
+
+		data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].resume = data.resume
+
+		io.emit("update_resume", data)
+
+		try {
+			fs.writeFileSync( data_file_path, JSON.stringify( data_app /*, null, '\t'*/ ) )
+		} catch (e) {
+			console.log(e)
+		}
+	})
+
+	socket.on("get_inscrits", (data)=>{
+
+		let liste_inscrits = []
+
+		for(const etudiant in data_app.etudiants){
+			if(typeof data_app.etudiants[etudiant].approches[data.approche_id] !== 'undefined' && data_app.etudiants[etudiant].approches[data.approche_id] == data.enseignant_id){
+
+				liste_inscrits.push( etudiant )
+			}
+		}
+
+		socket.emit("data_inscrits", liste_inscrits)
 	})
 
 
@@ -303,13 +371,10 @@ io.on('connection', (socket) => {
 
 			if( data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places < data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].max_places ){
 
-				try{
-					delete data_app.etudiants[ req.session.userID ].approches[ data.approche_id ]
-					data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places ++	
-				} catch (e) {
-					console.log("ERROR during delete", e)
-				}
+				delete data_app.etudiants[ req.session.userID ].approches[ data.approche_id ]
+				data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places ++	
 				
+
 				message = "Désinscription confirmée."
 			}
 		}
@@ -332,7 +397,7 @@ io.on('connection', (socket) => {
 
 
 		try {
-			fs.writeFileSync( data_file_path, JSON.stringify( data_app /*, null, '\t'*/ ) )
+			fs.writeFileSync( data_file_path, JSON.stringify( data_app , null, '\t' ) )
 		} catch (e) {
 			console.log(e)
 		}

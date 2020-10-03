@@ -14,9 +14,12 @@ Vue.component('approche-comp', {
 			return {toggle:false}
 	},
 	methods:{
-		select_approche:function(approche_id, enseignant_id){
-			// this.valid = true
-			app.update_approche_teacher(approche_id, enseignant_id)
+		// select_approche:function(approche_id, enseignant_id){
+		// 	// this.valid = true
+		// 	app.update_approche_teacher(approche_id, enseignant_id)
+		// },
+		showeditor:function(state, approche_id, enseignant_id){
+			app.showeditor(state, approche_id, enseignant_id)
 		}
 	}
 })
@@ -26,9 +29,17 @@ var data_app = {
 	logged: false,
 	email:'',
 	message: 'Hello Vue!',
+	editor: false,
 	opacity:0,
 	approches:{},
 	enseignants:{},
+	inscrits:[
+		"loic@hear.fr"
+	],
+	nbr_inscrits:'',
+	approche_id:'',
+	enseignant_id:'',
+	description:'ok',
 }
 
 
@@ -88,48 +99,48 @@ var app = new Vue({
 			// console.log("enseignants",json)
 			data_app.enseignants = json
 		},
-		update_approche_teacher:function(approche_id, enseignant_id){
+		// update_approche_teacher:function(approche_id, enseignant_id){
 
-			if(data_app.approches[ approche_id ].enseignants[ enseignant_id ].places > 0 ){
+		// 	if(data_app.approches[ approche_id ].enseignants[ enseignant_id ].places > 0 ){
 
-				let previous_enseignant_id = null
+		// 		let previous_enseignant_id = null
 
-				for(enseignant in data_app.approches[ approche_id ].enseignants){
-					if(data_app.approches[ approche_id ].enseignants[ enseignant ].selected == true){
-						previous_enseignant_id = enseignant
-					}
-				}
+		// 		for(enseignant in data_app.approches[ approche_id ].enseignants){
+		// 			if(data_app.approches[ approche_id ].enseignants[ enseignant ].selected == true){
+		// 				previous_enseignant_id = enseignant
+		// 			}
+		// 		}
 
-				if( data_app.approches[ approche_id ].enseignants[ enseignant_id ].selected == true ){
-					data_app.approches[ approche_id ].enseignants[ enseignant_id ].selected = false
-				}else{
-					for(enseignant in data_app.approches[ approche_id ].enseignants){
-						data_app.approches[ approche_id ].enseignants[ enseignant ].selected = false
-					}
-					data_app.approches[ approche_id ].enseignants[ enseignant_id ].selected = true
-				}
+		// 		if( data_app.approches[ approche_id ].enseignants[ enseignant_id ].selected == true ){
+		// 			data_app.approches[ approche_id ].enseignants[ enseignant_id ].selected = false
+		// 		}else{
+		// 			for(enseignant in data_app.approches[ approche_id ].enseignants){
+		// 				data_app.approches[ approche_id ].enseignants[ enseignant ].selected = false
+		// 			}
+		// 			data_app.approches[ approche_id ].enseignants[ enseignant_id ].selected = true
+		// 		}
 
-				let choosed = false
+		// 		let choosed = false
 
-				if( data_app.approches[ approche_id ].enseignants[ enseignant_id ].selected == true){
-					choosed = true
-				}
+		// 		if( data_app.approches[ approche_id ].enseignants[ enseignant_id ].selected == true){
+		// 			choosed = true
+		// 		}
 
-				data_app.approches[ approche_id ].validated = choosed
+		// 		data_app.approches[ approche_id ].validated = choosed
 
-				// console.log(approche_id, enseignant_id, this.enseignants)
-				socket.emit("select_approche",{
-					"approche_id":approche_id, 
-					"enseignant_id":enseignant_id, 
-					"previous_enseignant_id":previous_enseignant_id,
-					"choosed": choosed
-				})
+		// 		// console.log(approche_id, enseignant_id, this.enseignants)
+		// 		socket.emit("select_approche",{
+		// 			"approche_id":approche_id, 
+		// 			"enseignant_id":enseignant_id, 
+		// 			"previous_enseignant_id":previous_enseignant_id,
+		// 			"choosed": choosed
+		// 		})
 
-				this.update_active_teachers()
-			}else{
-				this.update_message("Il n'y a plus de place ! Veuillez choisir une autre approche.")
-			}
-		},
+		// 		this.update_active_teachers()
+		// 	}else{
+		// 		this.update_message("Il n'y a plus de place ! Veuillez choisir une autre approche.")
+		// 	}
+		// },
 		received_data_user:function(json){
 			// console.log("data_user",json)
 
@@ -162,9 +173,53 @@ var app = new Vue({
 				data_app.opacity = 0
 			},4000)
 		},
+		received_data_inscrits: function(json){
+			data_app.inscrits = json
+
+			data_app.nbr_inscrits = json.length + '/' + data_app.approches[data_app.approche_id].enseignants[data_app.enseignant_id].max_places + " inscrit" + (json.length > 1 ? "s" : "")
+		},
+		showeditor:function(state, approche_id, enseignant_id){
+			data_app.editor = state
+
+			if(state == true){
+				socket.emit("get_inscrits",{
+					approche_id : approche_id,
+					enseignant_id : enseignant_id
+				})
+
+				data_app.approche_id = approche_id
+				data_app.enseignant_id = enseignant_id
+
+				console.log(approche_id, enseignant_id)
+
+				data_app.description = data_app.approches[approche_id].enseignants[enseignant_id].resume
+
+			}else{
+				data_app.approche_id = ""
+				data_app.enseignant_id = ""
+			}
+
+			let myBody = document.getElementsByTagName('body')[0]
+			if(state){
+				myBody.classList.add('noscroll')
+			}else{
+				myBody.classList.remove('noscroll')
+			}
+		},
+		save: function(){
+			console.log("save data", data_app.approche_id, data_app.enseignant_id)
+			console.log("description", data_app.description)
+
+			socket.emit("save_resume",{
+				approche_id : data_app.approche_id,
+				enseignant_id : data_app.enseignant_id,
+				resume : data_app.description,
+			})
+		},
 		update_resume: function(json){
 			data_app.approches[json.approche_id].enseignants[json.enseignant_id].resume = json.resume
 		}
+
 	},
 	mounted: function(){
 		console.log("App ready")
@@ -212,6 +267,10 @@ socket.on("data_enseignants", function(json){
 socket.on("data_user", function(json){
 	// console.log("data_enseignants", data)
 	app.received_data_user(json)
+})
+
+socket.on("data_inscrits", function(json){
+	app.received_data_inscrits(json)
 })
 
 socket.on("update_resume", function(json){

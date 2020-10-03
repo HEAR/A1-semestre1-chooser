@@ -1,8 +1,13 @@
+:root{
+	--saumon: #ff6666 ;
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+
 
 html{
 	font-size: 30px;
@@ -11,6 +16,10 @@ html{
 body{
 	font-family: sans-serif;
 	margin: 0;
+}
+
+body.noscroll{
+	overflow: hidden;
 }
 
 #app{
@@ -50,6 +59,10 @@ a:hover{
 	color:blue;
 }
 
+.admin a:hover{
+	color: var(--saumon);
+}
+
 ul{
 	list-style-position: inside;
 	margin: 0;
@@ -79,6 +92,10 @@ section#login{
 	align-content: center;
 }
 
+.admin section#login{
+	background: var(--saumon);
+}
+
 section#login input{
 	font-size: 1rem;
 	border: 0;
@@ -89,6 +106,10 @@ section#login input{
 	background: blue;
 	border: solid 1px #000;
 	outline: none;
+}
+
+.admin section#login input{
+	background: var(--saumon);
 }
 
 section#login input:focus{
@@ -114,6 +135,10 @@ section#selecteur #etudiant-info{
 #logout{
 	grid-area: logout;
 	color: blue;
+}
+
+.admin #logout{
+	color: var(--saumon);
 }
 
 section#selecteur #enseignants-liste{
@@ -173,6 +198,10 @@ section#selecteur ul.approches li .nom{
 	cursor: pointer;
 }
 
+.admin section#selecteur ul.approches li .nom:hover{
+	text-decoration: underline;
+}
+
 section#selecteur li:last-child ul.approches{
 	border: 0;
 }
@@ -183,6 +212,11 @@ section#selecteur ul.approches li.selected .nom{
 	color: #FFF;
 	margin-left: -.15rem;
 }
+
+.admin section#selecteur ul.approches li.selected .nom{
+	background: var(--saumon);
+}
+
 
 .bulle{
 	color: #FFF;
@@ -202,24 +236,44 @@ section#selecteur .validated .date{
 	color:blue;
 }
 
+.admin section#selecteur .validated .date{
+	color: var(--saumon);
+}
+
 .validated h2{
 	text-decoration: line-through;
 	text-decoration-color: blue;
+}
+
+.admin .validated h2{
+	text-decoration: var(--saumon);
 }
 
 .validated{
 	color: blue;
 }
 
+.admin .validated{
+	color: var(--saumon);
+}
+
 .validated .bulle{
 	background: blue;
+}
+
+.admin .validated .bulle{
+	background: var(--saumon);
 }
 
 section#selecteur .validated ul.approches{
 	border-color: blue;
 }
 
-/* SLIDE TOGGLE*/
+.admin section#selecteur .validated ul.approches{
+	border-color: var(--saumon);
+}
+
+/* ----------- SLIDE TOGGLE ----------- */
 /* http://jsfiddle.net/Jayesh_v/tmagr517/ */
 .wrapper{
 	font-size: .75rem;
@@ -237,8 +291,82 @@ section#selecteur .validated ul.approches{
 .slide-leave-to {
 	max-height: 0px;
 }
-/* FIN SLIDE TOGGLE*/
+/* ----------- END SLIDE TOGGLE -----------*/
 
+
+
+
+
+
+/* ----------- EDITOR ----------- */
+#editor{
+	position: fixed;
+	top: 2rem;
+	bottom: 2rem;
+	left: 2rem;
+	right: 2rem;
+	background: var(--saumon);
+	overflow: auto;
+	padding: 1rem;
+	/*pointer-events: none;*/
+}
+
+#editor .content{
+	margin-top: 1rem;
+}
+
+#editor .menu{
+	display: flex;
+	justify-content: space-between;
+}
+
+#editor h3{
+	font-weight: normal;
+	margin-top: 1rem;
+}
+
+#editor .content textarea{
+	border: solid 1px var(--saumon);
+	min-height: calc(8rem + .2rem);
+	width: 100%;
+	font-size: 1rem;
+	padding: .1rem;
+	margin: -.1rem;
+	outline: none;
+}
+
+#editor .content textarea:focus{
+	border-color: #000;
+}
+
+#editor .content #inscrits{
+	margin-top: 1rem;
+	column-count: 5;
+	font-size: .5rem;
+}
+
+#editor h3 .cartouche{
+	color: #FFF;
+	background: black;
+	padding: .15rem;
+	border-radius: .5rem;
+	font-size: .6rem;
+	position: relative;
+	bottom: .16rem;
+	display: inline-block;
+	height: 1rem;
+	min-width: 1rem;
+	text-align: center;
+}
+
+/* ----------- END EDITOR ----------- */
+
+
+
+
+
+
+/* ----------- MESSAGE ----------- */
 #message{
 	position: fixed;
 	bottom: .5rem;
@@ -249,15 +377,20 @@ section#selecteur .validated ul.approches{
 
 #message .content{
 	max-width: 400px;
-	margin: auto;
-	background: #ff6666;
+	background: var(--saumon);
 	padding: .75rem;
 	font-size: .5rem;
 	font-weight: bold;
 	transition: opacity 1s ease-in-out;
 	border-radius: .15rem;
-	margin: 1rem 1rem .5rem;
+	margin: 1rem auto .5rem;
 }
+
+/*.admin #message .content{
+	background: blue;
+}*/
+
+/* ----------- END MESSAGE ----------- */
 
 @media screen and (max-width: 1400px) {
 	html{

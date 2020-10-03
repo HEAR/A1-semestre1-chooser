@@ -361,11 +361,24 @@ io.on('connection', (socket) => {
 			}
 
 			if( data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places > 0 ){
-				data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places --
-				data_app.etudiants[ req.session.userID ].approches[ data.approche_id ] = data.enseignant_id
+				
+				if(typeof req.session.userID == 'undefined'){
 
-				message = "L'inscription est validée."
+					message = "Il y a une erreur avec le compte, contacter Loïc…"
 
+				}else if(typeof data_app.etudiants[ req.session.userID ].approches !== 'undefined'){
+
+					data_app.approches[ data.approche_id ].enseignants[ data.enseignant_id ].places --
+					data_app.etudiants[ req.session.userID ].approches[ data.approche_id ] = data.enseignant_id
+					message = "L'inscription est validée."
+
+				}else{
+
+					message = "Il y a une erreur, contacter Loïc…"
+
+				}
+
+				
 			}else{
 				message = "il n'y plus de place"
 			}

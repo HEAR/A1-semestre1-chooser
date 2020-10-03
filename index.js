@@ -1,4 +1,6 @@
 // https://codeforgeek.com/manage-session-using-node-js-express-4/
+// v 0.1 alpha
+
 
 const fs 			= require('fs')
 const path 			= require('path')

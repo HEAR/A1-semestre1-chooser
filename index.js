@@ -197,7 +197,10 @@ app.use( sessionMiddleware )
 app.use( cookieParser() )
 app.use( express.static( __dirname +'/public') )
 app.get('/admin', (req, res) => {
-	res.sendFile(__dirname + '/public/admin.html');
+	res.sendFile(__dirname + '/private/admin.html');
+});
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/private/index.html');
 });
 
 

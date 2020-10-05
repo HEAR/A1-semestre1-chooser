@@ -187,11 +187,13 @@ section#selecteur ul.approches{
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-column-gap: 1rem;
+	justify-content: start;
 	margin-top: 0;
 	padding-bottom: .5rem;
 	border-bottom: solid calc(1rem / 6) black;
 	margin-bottom: .5rem;
 }
+
 
 section#selecteur ul.approches li .nom{
 	padding: .1rem;
@@ -281,7 +283,10 @@ section#selecteur .validated ul.approches{
 	position:relative;
 	overflow: hidden;
 	max-height: 2000px;
-	white-space: pre-line;
+	/*white-space: pre-line;*/
+	/*word-wrap: break-word;*/
+	overflow-wrap: break-word;
+	max-width: 100%;
 }
 .slide-enter-active,
 .slide-leave-active  {
@@ -293,7 +298,43 @@ section#selecteur .validated ul.approches{
 }
 /* ----------- END SLIDE TOGGLE -----------*/
 
+/* ----------- CONTENT ----------- */
 
+.wrapper>*{
+	font-size: .75rem;
+	margin: 0;
+}
+
+.wrapper h1,
+.wrapper h2,
+.wrapper h3,
+.wrapper h4,
+.wrapper h5,
+.wrapper h6{
+	font-weight: bold;
+}
+
+.wrapper a{
+	text-decoration: underline;
+}
+
+.wrapper p+p,
+.wrapper ul+p{
+	margin-top: 1rem;
+}
+
+.wrapper ul{
+	margin-top: 1rem;
+	padding: 0;
+}
+
+.wrapper ul li:before{
+	content: "•";
+	display: inline-block;
+	margin-right: .25rem;
+}
+
+/* ----------- CONTENT ----------- */
 
 
 

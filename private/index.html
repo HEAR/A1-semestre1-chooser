@@ -69,9 +69,7 @@
 					>
 					<div><span class="bulle">{{enseignant.places}}</span> <span class="nom" v-on:click="select_approche(id,enseignant.id)">{{enseignant.nom}}</span></div>
 					<transition name="slide">
-						<div v-if="toggle" class="wrapper">
-							{{enseignant.resume}}
-						</div>
+						<div v-if="toggle" class="wrapper" v-html="marked(enseignant.resume)"></div>
 					</transition>
 				</li>
 			</ul>
@@ -80,7 +78,8 @@
 	<!--  SCRIPTS  -->
 	<script src="/socket.io/socket.io.js"></script>
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-	<script src="assets/js/vue.min.js"></script>
+	<script src="assets/vendor/marked-1.20/marked.min.js"></script>
+	<script src="assets/vendor/vue.min.js"></script>
 	<script src="assets/js/script.js"></script>
 </body>
 </html>

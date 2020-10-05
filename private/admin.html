@@ -20,15 +20,6 @@
 				<p>Bonjour <span id="etudiant-mail">{{email}}</span></p>
 				<button id="logout" v-on:click="logout">Se déconnecter</button>
 			</div>
-			<!-- <div id="enseignants-liste">
-				<ul>
-					<li v-for="enseignant in enseignants"
-						v-bind:key="enseignant.id"
-						v-bind:id="enseignant.id"
-						v-bind:class="{ selected: enseignant.active }"
-						v-on:click="log(enseignant.id)">{{enseignant.nom}}</li>
-				</ul>
-			</div> -->
 			<div id="approches-liste">
 				<ul>
 					<approche-comp
@@ -40,7 +31,6 @@
 							:enseignants="approche.enseignants"
 							v-bind:ref="'approche-'+approche.id"
 							v-bind:key="approche.id"></approche-comp>
-					
 				</ul>
 			</div>
 			<div id="editor" v-if="editor">
@@ -72,10 +62,10 @@
 	<!-- https://coligo.io/vuejs-components/ -->
 	<!--  v-on:click="incrementHeroCounter" -->
 	<template id="approche-template">
-		<li	v-bind:class="{ validated: validated }" v-bind:id="id">
+		<li v-bind:id="id">
 			<h2>{{titre}}</h2>
 			<p class="date">{{date}}</p>
-			<h3>Approches :</h3>
+			<h3><span class="bulle" v-on:click="toggle = !toggle">{{toggle ? '↑' : '↓'}}</span> Approches :</h3>
 			<ul class="approches">
 				<li v-for="enseignant in enseignants"
 					v-bind:key="enseignant.nom"
@@ -83,11 +73,10 @@
 					>
 					<div><span class="bulle">{{enseignant.places}}</span> <span class="nom" v-on:click="showeditor(true,id,enseignant.id)">{{enseignant.nom}}</span></div>
 					<!-- select_approche(id,enseignant.id) -->
-					<!-- <transition name="slide">
-						<div v-if="toggle" class="wrapper">
-							{{enseignant.resume}}
-						</div>
-					</transition> -->
+					<!-- https://marked.js.org -->
+					<transition name="slide">
+						<div v-if="toggle" class="wrapper" v-html="marked(enseignant.resume)"></div>
+					</transition>
 				</li>
 			</ul>
 		</li>
@@ -95,7 +84,8 @@
 	<!--  SCRIPTS  -->
 	<script src="/socket.io/socket.io.js"></script>
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-	<script src="assets/js/vue.min.js"></script>
+	<script src="assets/vendor/marked-1.20/marked.min.js"></script>
+	<script src="assets/vendor/vue.min.js"></script>
 	<script src="assets/js/admin.js"></script>
 </body>
 </html>

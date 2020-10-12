@@ -300,9 +300,11 @@ io.on('connection', (socket) => {
 	})
 
 	socket.on('logout', (data) => {
-		console.log('logout', req.session)
-		req.session.destroy()
-		socket.emit('logout_success')
+		if(typeof req.session !== 'undefined'){
+			console.log('logout', req.session)
+			req.session.destroy()
+			socket.emit('logout_success')
+		}
 	})
 
 	// socket.on('chat message', (msg) => {

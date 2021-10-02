@@ -2,7 +2,7 @@
 	"approches":[
 		{
 			"titre":"Groupe",
-			"date":"2020-10-04",
+			"date":"2021-10-04",
 			"enseignants":[
 				{
 					"nom":"Marie-Jo Daloz",
@@ -20,7 +20,7 @@
 		},
 		{
 			"titre":"Collecter / archiver",
-			"date":"2020-10-11",
+			"date":"2021-10-11",
 			"enseignants":[
 				{
 					"nom":"Éloïsa Perez",
@@ -42,7 +42,7 @@
 		},
 		{
 			"titre":"Protocole",
-			"date":"2020-10-18",
+			"date":"2021-10-18",
 			"enseignants":[
 				{
 					"nom":"Éloïsa Perez",
@@ -64,7 +64,7 @@
 		},
 		{
 			"titre":"Espace / objet",
-			"date":"2020-10-25",
+			"date":"2021-10-25",
 			"enseignants":[
 				{
 					"nom":"Marie-Jo Daloz",
@@ -86,7 +86,7 @@
 		},
 		{
 			"titre":"Signe / enquête",
-			"date":"2020-11-02",
+			"date":"2021-11-02",
 			"enseignants":[
 				{
 					"nom":"Éloïsa Perez",
@@ -112,7 +112,7 @@
 		},
 		{
 			"titre":"Voyage (nature, culture, nourriture)",
-			"date":"2020-11-08",
+			"date":"2021-11-08",
 			"enseignants":[
 				{
 					"nom":"Éloïsa Perez",
@@ -130,7 +130,7 @@
 		},
 		{
 			"titre":"Main / machine",
-			"date":"2020-11-22",
+			"date":"2021-11-22",
 			"enseignants":[
 				{
 					"nom":"Loïc Horellou",
@@ -156,7 +156,7 @@
 		},
 		{
 			"titre":"Narration",
-			"date":"2020-11-29",
+			"date":"2021-11-29",
 			"enseignants":[
 				{
 					"nom":"Marie-Jo Daloz",
@@ -178,7 +178,7 @@
 		},
 		{
 			"titre":"Espace / accrochage",
-			"date":"2020-12-06",
+			"date":"2021-12-06",
 			"enseignants":[
 				{
 					"nom":"Éloïsa Perez",
@@ -200,7 +200,7 @@
 		},
 		{
 			"titre":"Machine de Rupe Goldberg",
-			"date":"2020-12-13",
+			"date":"2021-12-13",
 			"enseignants":[
 				{
 					"nom":"Loïc Horellou",
@@ -222,7 +222,7 @@
 		},
 		{
 			"titre":"Hors champ",
-			"date":"2021-01-03",
+			"date":"2022-01-03",
 			"enseignants":[
 				{
 					"nom":"Éloïsa Perez",
@@ -234,11 +234,7 @@
 				},
 				{	
 					"nom":"Alain Della Negra / Jérôme Thomas",
-					"resume":"Alain Della Negra / Descriptif à venir…"
-				},
-				{	
-					"nom":"Alain Della Negra / Jérôme Thomas",
-					"resume":"Jérôme Thomas / Descriptif à venir…"
+					"resume":"Jérôme Thomas / Descriptif à venir…\n\nAlain Della Negra / Descriptif à venir… "
 				},
 				{
 					"nom":"Initiation option",
@@ -248,7 +244,7 @@
 		},
 		{
 			"titre":"Édition",
-			"date":"2021-01-10",
+			"date":"2022-01-10",
 			"enseignants":[
 				{
 					"nom":"Loïc Horellou",

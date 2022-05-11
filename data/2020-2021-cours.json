@@ -1,53 +1,9 @@
 {
 	"approches":[
 		{
-			"titre":"Groupe",
-			"date":"2021-10-04",
+			"titre":"Archiver / documenter",
+			"date":"2020-10-05",
 			"enseignants":[
-				{
-					"nom":"Marie-Jo Daloz",
-					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Vincent Chevillon",
-					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Claire Malrieux",
-					"resume":"Descriptif à venir…"
-				}
-			]
-		},
-		{
-			"titre":"Collecter / archiver",
-			"date":"2021-10-11",
-			"enseignants":[
-				{
-					"nom":"Éloïsa Perez",
-					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Loïc Horellou",
-					"resume":"Descriptif à venir…"
-				},
-				{	
-					"nom":"Vincent Chevillon",
-					"resume":"Descriptif à venir…"
-				},
-				{	
-					"nom":"Alain Della Negra / Jérôme Thomas",
-					"resume":"Jérôme Thoma / Descriptif à venir…"
-				}
-			]
-		},
-		{
-			"titre":"Protocole",
-			"date":"2021-10-18",
-			"enseignants":[
-				{
-					"nom":"Éloïsa Perez",
-					"resume":"Descriptif à venir…"
-				},
 				{
 					"nom":"Loïc Horellou",
 					"resume":"Descriptif à venir…"
@@ -58,16 +14,48 @@
 				},
 				{
 					"nom":"Samuel François",
+					"resume":"Descriptif à venir…"
+				}
+			]
+		},
+		{
+			"titre":"Groupe",
+			"date":"2020-10-12",
+			"enseignants":[
+				{
+					"nom":"Loïc Horellou",
+					"resume":"Descriptif à venir…"
+				},
+				{
+					"nom":"Marie-Jo Daloz",
+					"resume":"Descriptif à venir…"
+				},
+				{	
+					"nom":"Vincent Chevillon",
+					"resume":"Descriptif à venir…"
+				},
+				{	
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"Descriptif à venir…"
+				}
+			]
+		},
+		{
+			"titre":"Empreinte",
+			"date":"2020-10-19",
+			"enseignants":[
+				{
+					"nom":"Équipe pédagogique",
 					"resume":"Descriptif à venir…"
 				}
 			]
 		},
 		{
 			"titre":"Espace / objet",
-			"date":"2021-10-25",
+			"date":"2020-10-26",
 			"enseignants":[
 				{
-					"nom":"Marie-Jo Daloz",
+					"nom":"Aurélie Gasche",
 					"resume":"Descriptif à venir…"
 				},
 				{
@@ -77,23 +65,19 @@
 				{
 					"nom":"Samuel François",
 					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Initiation option",
-					"resume":"Art objet n°1 / Descriptif à venir…"
 				}
 			]
 		},
 		{
 			"titre":"Signe / enquête",
-			"date":"2021-11-02",
+			"date":"2020-11-02",
 			"enseignants":[
 				{
-					"nom":"Éloïsa Perez",
+					"nom":"Marie-Jo Daloz",
 					"resume":"Descriptif à venir…"
 				},
 				{
-					"nom":"Marie-Jo Daloz",
+					"nom":"Vincent Chevillon",
 					"resume":"Descriptif à venir…"
 				},
 				{
@@ -101,37 +85,19 @@
 					"resume":"Descriptif à venir…"
 				},
 				{
-					"nom":"Samuel François",
-					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Initiation option",
-					"resume":"Didactique visuelle / Descriptif à venir…"
-				}
-			]
-		},
-		{
-			"titre":"Voyage (nature, culture, nourriture)",
-			"date":"2021-11-08",
-			"enseignants":[
-				{
-					"nom":"Éloïsa Perez",
-					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Loïc Horellou",
-					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Vincent Chevillon",
+					"nom":"Alain Della Negra / Liv Schulmann",
 					"resume":"Descriptif à venir…"
 				}
 			]
 		},
 		{
 			"titre":"Main / machine",
-			"date":"2021-11-22",
+			"date":"2020-11-09",
 			"enseignants":[
+				{
+					"nom":"Aurélie Gasche",
+					"resume":"Descriptif à venir…"
+				},
 				{
 					"nom":"Loïc Horellou",
 					"resume":"Descriptif à venir…"
@@ -139,27 +105,45 @@
 				{
 					"nom":"Marie-Jo Daloz",
 					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Vincent Chevillon",
-					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Claire Malrieux",
-					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Initiation option",
-					"resume":"Art objet n°2 / Descriptif à venir…"
 				}
 			]
 		},
 		{
 			"titre":"Narration",
-			"date":"2021-11-29",
+			"date":"2020-11-23",
 			"enseignants":[
 				{
+					"nom":"Aurélie Gasche",
+					"resume":"Descriptif à venir…"
+				},
+				{
 					"nom":"Marie-Jo Daloz",
+					"resume":"Descriptif à venir…"
+				},
+				{
+					"nom":"Claire Malrieux",
+					"resume":"Descriptif à venir…"
+				},
+				{
+					"nom":"Vincent Chevillon",
+					"resume":"Descriptif à venir…"
+				},
+				{
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"Descriptif à venir…"
+				}
+			]
+		},
+		{
+			"titre":"Procole",
+			"date":"2020-11-30",
+			"enseignants":[
+				{	
+					"nom":"Aurélie Gasche",
+					"resume":"Descriptif à venir…"
+				},
+				{	
+					"nom":"Loïc Horellou",
 					"resume":"Descriptif à venir…"
 				},
 				{	
@@ -167,21 +151,21 @@
 					"resume":"Descriptif à venir…"
 				},
 				{	
-					"nom":"Alain Della Negra / Jérôme Thomas",
-					"resume":"Alain Della Negra / Descriptif à venir…"
-				},
-				{
-					"nom":"Initiation option",
-					"resume":"Illustration / Descriptif à venir…"
+					"nom":"Samuel François",
+					"resume":"Descriptif à venir…"
 				}
 			]
 		},
 		{
-			"titre":"Espace / accrochage",
-			"date":"2021-12-06",
+			"titre":"Accrochage",
+			"date":"2020-12-07",
 			"enseignants":[
 				{
-					"nom":"Éloïsa Perez",
+					"nom":"Aurélie Gasche",
+					"resume":"Descriptif à venir…"
+				},
+				{
+					"nom":"Marie-Jo Daloz",
 					"resume":"Descriptif à venir…"
 				},
 				{
@@ -191,16 +175,12 @@
 				{
 					"nom":"Samuel François",
 					"resume":"Descriptif à venir…"
-				},
-				{
-					"nom":"Initiation option",
-					"resume":"Scénographie / Descriptif à venir…"
 				}
 			]
 		},
 		{
-			"titre":"Machine de Rupe Goldberg",
-			"date":"2021-12-13",
+			"titre":"Performance",
+			"date":"2020-12-14",
 			"enseignants":[
 				{
 					"nom":"Loïc Horellou",
@@ -215,39 +195,35 @@
 					"resume":"Descriptif à venir…"
 				},
 				{
-					"nom":"Initiation option",
-					"resume":"Art n°1 / Descriptif à venir…"
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"Descriptif à venir…"
 				}
 			]
 		},
 		{
 			"titre":"Hors champ",
-			"date":"2022-01-03",
+			"date":"2021-01-04",
 			"enseignants":[
 				{
-					"nom":"Éloïsa Perez",
+					"nom":"Loïc Horellou",
 					"resume":"Descriptif à venir…"
 				},
 				{
 					"nom":"Marie-Jo Daloz",
 					"resume":"Descriptif à venir…"
 				},
-				{	
-					"nom":"Alain Della Negra / Jérôme Thomas",
-					"resume":"Jérôme Thomas / Descriptif à venir…\n\nAlain Della Negra / Descriptif à venir… "
-				},
 				{
-					"nom":"Initiation option",
-					"resume":"Art n°2 / Descriptif à venir…"
+					"nom":"Vincent Chevillon",
+					"resume":"Descriptif à venir…"
 				}
 			]
 		},
 		{
 			"titre":"Édition",
-			"date":"2022-01-10",
+			"date":"2021-01-13",
 			"enseignants":[
 				{
-					"nom":"Loïc Horellou",
+					"nom":"Aurélie Gasche",
 					"resume":"Descriptif à venir…"
 				},
 				{
@@ -259,12 +235,8 @@
 					"resume":"Descriptif à venir…"
 				},
 				{
-					"nom":"Alain Della Negra / Jérôme Thomas",
-					"resume":"Jérôme Thomas / Descriptif à venir…"
-				},
-				{
-					"nom":"Initiation option",
-					"resume":"Communication graphique / Descriptif à venir…"
+					"nom":"Alain Della Negra / Liv Schulmann",
+					"resume":"Descriptif à venir…"
 				}
 			]
 		}

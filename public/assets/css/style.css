@@ -303,6 +303,7 @@ section#selecteur .validated ul.approches{
 .wrapper>*{
 	font-size: .75rem;
 	margin: 0;
+	word-break: break-word;
 }
 
 .wrapper h1,
